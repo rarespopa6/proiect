@@ -169,4 +169,29 @@ int main()
 		}
 		
 	}
+	cout << endl;
+
+	ifstream RezepturFile("rezeptur.txt");
+	int menge[20];
+	string StoffListe[100];
+	string wrg = warg;
+	string ing = indg;
+	int n = 0;
+	if (!RezepturFile)
+		cout << "Error opening file - Rezeptur";
+	else
+	{
+		RezepturFile >> n;
+		for (int i = 1; i <= n; i++)
+			RezepturFile >> menge[i];
+		for (int i = 1; i <= n; i++)
+		{
+			StoffListe[i] = "Warrengruppe: " + wrg + " Indikationsgruppe: " + ing + "\n" + "\n";
+		}
+		for (int i = 1; i <= n; i++)
+		{
+			cout << "Menge: " <<  menge[i] << "\n";
+			cout << StoffListe[i];
+		}
+	}
 }
